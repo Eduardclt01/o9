@@ -9,6 +9,7 @@ const StyledTimeLabel = styled.span`
   display: inline-block;
   box-sizing: border-box;
   height: 100%;
+  font-size: ${props => props.theme.fontSize.f1};
 `;
 
 export default function TimeLabel(props: { time: string; }) {

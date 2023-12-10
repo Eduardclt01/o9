@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { device } from '../../Assets/Theme/breakpoints';
-import TimeLabel from "../TimeLabel/TimeLabel";
-import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../GlobalComponents/Buttons/SecondaryButton/SecondaryButton";
+import HeadingLarge from "../../GlobalComponents/Typography/HeadingLarge/HeadingLarge";
+import CardHeader from "../CardComponents/CardHeader/CardHeader";
 
 const StyledCardMaxTwoSpeakers = styled.div`
   height: 487px;
@@ -10,30 +10,16 @@ const StyledCardMaxTwoSpeakers = styled.div`
   padding:  ${props => props.theme.spacing.s7};
 `;
 
-const Cardheader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 29px;
-  align-items: center;
-`;
-
-const CategoryHeader = styled.p`
-  margin: 0;
-`;
-
-
 export default function CardMaxTwoSpeakers(props: { time: string; category: string; heading: string; speakers: any; }) {
   const {time, category, heading, speakers } = props;
+  const categoryText = category.toUpperCase();
 
   return (
     <StyledCardMaxTwoSpeakers>
-      <Cardheader>
-      <TimeLabel time={time} />
-      <div><CategoryHeader>{category}</CategoryHeader></div>
-      </Cardheader>
+      <CardHeader time={time} labelText={categoryText} />
     
       <div>
-        <h5>{heading}</h5>
+        <HeadingLarge text={heading} />
         <SecondaryButton text="learn more" onButtonClick={()=>{}} />
       </div>
       

@@ -1,8 +1,12 @@
+@font-face {
+  font-family: "o9Font";
+  src: local("o9Font"),
+    url(./Assets/Fonts/o9Sans-Regular-Web.woff2) format("woff2");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: o9Font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

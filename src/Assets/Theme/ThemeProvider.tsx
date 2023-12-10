@@ -27,6 +27,16 @@ const theme = {
     s5: "10px",
     s6: "14px",
     s7: "16px"
+  },
+  fontSize: {
+    f1: "9px",
+    f2: "12px",
+    f3: "14px",
+    f4: "17px",
+    f5: "20px",
+    f6: "24px",
+    f7: "32px",
+    f8: "48px"
   }
 };
 
