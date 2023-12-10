@@ -5,12 +5,15 @@ const StyledIconButton = styled.div`
   cursor: pointer;
 `;
 
-export default function IconButton(props: { Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>; onButtonClick: CallableFunction; }) {
-  const {Icon, onButtonClick} = props;
+export default function IconButton(props: {
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  onButtonClick: CallableFunction;
+}) {
+  const { Icon, onButtonClick } = props;
 
   return (
     <StyledIconButton onClick={onButtonClick()}>
-     <Icon />
+      <Icon />
     </StyledIconButton>
-  )
+  );
 }

@@ -11,12 +11,12 @@ const StyledCardheader = styled.div`
 `;
 
 export default function CardHeader(props: { time: string; labelText: string }) {
-  const {time, labelText} = props;
+  const { time, labelText } = props;
 
   return (
-      <StyledCardheader>
-        <TimeLabel time={time} />
-        <LabelMedium text={labelText} />
-      </StyledCardheader>
-  )
+    <StyledCardheader>
+      <TimeLabel time={time} />
+      <LabelMedium text={labelText} />
+    </StyledCardheader>
+  );
 }
