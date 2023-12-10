@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import TimeLabel from "../../../GlobalComponents/Labels/TimeLabel/TimeLabel";
-import LabelMedium from "../../../GlobalComponents/Typography/LabelMedium/LabelMedium";
+import TimeLabel from "../../GlobalComponents/Labels/TimeLabel";
+import LabelMedium from "../../GlobalComponents/Typography/LabelMedium";
 
 const StyledCardheader = styled.div`
   display: flex;

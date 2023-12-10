@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import SecondaryButton from "../../GlobalComponents/Buttons/SecondaryButton/SecondaryButton";
-import HeadingLarge from "../../GlobalComponents/Typography/HeadingLarge/HeadingLarge";
-import CardHeader from "../CardComponents/CardHeader/CardHeader";
+import SecondaryButton from "../GlobalComponents/Buttons/SecondaryButton";
+import HeadingLarge from "../GlobalComponents/Typography/HeadingLarge";
+import CardHeader from "./CardComponents/CardHeader";
 
 const StyledCardMaxFiveSpeakers = styled.div`
   height: 487px;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import CardMaxTwoSpeakers from './Components/Cards/CardMaxTwoSpeakers/CardMaxTwoSpeakers';
+import CardMaxTwoSpeakers from './Components/Cards/CardMaxTwoSpeakers';
 import Theme from './Assets/Theme/ThemeProvider';
 import GlobalFonts from './Assets/Fonts/fonts';
-import CardMaxFiveSpeakers from './Components/Cards/CardMaxFiveSpeakers/CardMaxFiveSpeakers';
-import CardHighlightedSpeakers from './Components/Cards/CardHighlightedSpeaker/CardHighlightedSpeaker';
+import CardMaxFiveSpeakers from './Components/Cards/CardMaxFiveSpeakers';
+import CardHighlightedSpeakers from './Components/Cards/CardHighlightedSpeaker';
 
 function App() {
   const { t } = useTranslation();
