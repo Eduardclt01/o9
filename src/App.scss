@@ -13,6 +13,7 @@
     padding-left: $s7;
     padding-right: $s7;
   }
+
   @include desktopUpM {
     padding-left: $s10;
     padding-right: $s10;
@@ -21,19 +22,6 @@
   @include desktopUpL {
     max-width: 1248px;
     margin: auto;
-  }
-
-  &__header{
-    margin-top: $s9;
-    margin-bottom: $s9;
-
-    .subtitle{
-      margin-bottom: $s88;
-    }
-
-    .title{
-      margin-bottom: $s888;
-    }
   }
 
   &__card-layout{

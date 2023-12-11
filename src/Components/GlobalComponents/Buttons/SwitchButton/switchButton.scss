@@ -1,7 +1,6 @@
 @import '../../../../Assets/Theme/global.scss';
 
 .switch-button{
-  cursor: pointer;
   background-color: $lightGray;
   padding: $s4;
   width: fit-content;
@@ -33,7 +32,6 @@
   }
 
   &__selection-bubble{
-    cursor: pointer;
     background-color: $black;
     border-radius: 27px;
     width: 83px;

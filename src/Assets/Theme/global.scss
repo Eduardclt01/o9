@@ -1,6 +1,16 @@
 @import './breakpoints.scss';
 @import './spacing.scss';
 
+// ---- COLORS ---- \\
 .primary-color{
   color: $primary;
+}
+
+// ---- HELPERS ---- \\
+.show-desktop-only{
+  display: none;
+
+  @include desktopUpS {
+    display: initial;
+  }
 }

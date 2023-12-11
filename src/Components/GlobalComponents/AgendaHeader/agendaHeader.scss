@@ -1,0 +1,39 @@
+@import '../../../Assets/Theme/global.scss';
+
+.agenda-header{
+  margin-top: $s9;
+  margin-bottom: $s9;
+  white-space: pre-line;
+  
+  .subtitle{
+    margin-bottom: $s88;
+  }
+
+  .title{
+    margin-bottom: $s888;
+  }
+
+  .timezone{
+    text-align: right;
+    font-weight: bold;
+  }
+
+  @include desktopUpS {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    >div{
+      flex: 1 1 0px;
+    }
+
+    .title{
+      margin-bottom: 0;
+    }
+
+    .button-container{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
