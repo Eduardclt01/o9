@@ -1,13 +1,13 @@
 import React from "react";
+import "./paragraphSmall.scss";
 import cx from "classnames";
-import "./paragraph.scss";
 
-export default function Paragraph(props: { text: string; bold?: boolean }) {
+export default function ParagraphSmall(props: { text: string; bold: boolean }) {
   const { text, bold } = props;
 
   return (
     <p
-      className={cx("typography-paragraph", {
+      className={cx("typography-paragraph-small", {
         bold: bold,
       })}
     >

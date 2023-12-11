@@ -18,7 +18,7 @@ export default function CardHighlightedSpeakers(props: {
     <CardWrapper>
       <div className="card-highlighted-speaker">
         <div className="card-highlighted-speaker__header">
-          <TimeLabel time={time} heightPx={29} />
+          <TimeLabel time={time} />
           <IconButton Icon={RightUpArrow} onButtonClick={() => {}} />
         </div>
 

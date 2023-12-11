@@ -1,5 +1,9 @@
 {
   "title": "Agenda",
   "subTitle": "Keynotes",
-  "timeZone": "Timezone: Europe/\nAmsterdam"
+  "timeZone": "Timezone: Europe/\nAmsterdam",
+  "keynote": "keynote",
+  "close": "close",
+  "addToCalendar": "Add to calendar",
+  "speakers": "speakers"
 }

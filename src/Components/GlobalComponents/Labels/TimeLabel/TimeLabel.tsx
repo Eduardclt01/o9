@@ -1,13 +1,8 @@
 import React from "react";
 import "./timeLabel.scss";
 
-export default function TimeLabel(props: { time: string; heightPx?: number }) {
-  const { time, heightPx } = props;
-  const elementHeight = heightPx ? props.heightPx + "px" : "100%";
+export default function TimeLabel(props: { time: string }) {
+  const { time } = props;
 
-  return (
-    <span className="time-label" style={{ height: elementHeight }}>
-      {time}
-    </span>
-  );
+  return <span className="time-label">{time}</span>;
 }

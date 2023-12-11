@@ -1,0 +1,48 @@
+@import '../../../../Assets/Theme/global.scss';
+
+.modal{
+  background-color: $offWhite;
+  position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+  padding: $s7;
+  box-sizing: border-box;
+
+  @include desktopUpS {
+    padding: $s8888;
+    width: 744px;
+    left: 50%;
+    margin-left: -372px;
+    margin-top: 34px;
+    height: fit-content;
+  }
+
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $s7;
+  }
+
+  &__keynote{
+    margin-bottom: $s88;
+  }
+
+  &__timezone{
+    margin-bottom: $s8888;
+
+    @include desktopUpS {
+      margin-bottom: $s9;
+    }
+  }
+
+  &__body-text{
+    margin-bottom: $s123;
+    margin-top: $s123;
+  }
+
+  &__calendary-btn{
+    margin-bottom: $s99;
+  }
+}
