@@ -1,0 +1,15 @@
+@import '../../../../Assets/Theme/global.scss';
+
+.time-label{
+  background-color: $black;
+  border-radius: $border-radius;
+  color: $white;
+  padding-top: $s5;
+  padding-bottom: $s5;
+  padding-left: $s6;
+  padding-right: $s6;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: $f1;
+  line-height: 1;
+}

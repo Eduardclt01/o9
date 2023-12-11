@@ -1,0 +1,51 @@
+@import './Assets//Theme/global.scss';
+
+.main-body {
+  padding-left: $s7;
+  padding-right: $s7;
+
+  @include tabletUp {
+    padding-left: $s9;
+    padding-right: $s9;
+  }
+
+  @include desktopUpS {
+    padding-left: $s7;
+    padding-right: $s7;
+  }
+  @include desktopUpM {
+    padding-left: $s10;
+    padding-right: $s10;
+  }
+
+  @include desktopUpL {
+    max-width: 1248px;
+    margin: auto;
+  }
+
+  &__header{
+    margin-top: $s9;
+    margin-bottom: $s9;
+
+    .subtitle{
+      margin-bottom: $s88;
+    }
+
+    .title{
+      margin-bottom: $s888;
+    }
+  }
+
+  &__card-layout{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    grid-auto-flow: dense;
+
+    @include tabletLUp {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

@@ -1,9 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledIconButton = styled.div`
-  cursor: pointer;
-`;
+import "./iconButton.scss";
 
 export default function IconButton(props: {
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -12,8 +8,8 @@ export default function IconButton(props: {
   const { Icon, onButtonClick } = props;
 
   return (
-    <StyledIconButton onClick={onButtonClick()}>
+    <div className="icon-button" onClick={onButtonClick()}>
       <Icon />
-    </StyledIconButton>
+    </div>
   );
 }

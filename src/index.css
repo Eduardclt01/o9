@@ -1,7 +1,7 @@
 @font-face {
   font-family: "o9Font";
   src: local("o9Font"),
-    url(./Assets/Fonts/o9Sans-Regular-Web.woff2) format("woff2");
+    url(./Assets/Fonts/o9Sans-Light-Web.woff2) format("woff2");
 }
 
 body {
@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 17px;
+  background-color: #E5E5E5;
 }
 
 code {

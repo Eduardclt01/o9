@@ -1,10 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import SecondaryButton from "../GlobalComponents/Buttons/SecondaryButton";
-import HeadingRegular from "../GlobalComponents/Typography/HeadingRegular";
-import CardHeader from "./CardComponents/CardHeader";
-import CardWrapper from "./CardComponents/CardWrapper";
-import { ReactComponent as RightArrow } from "../../Assets/Images/Svgs/rightArrow.svg";
+import SecondaryButton from "../../GlobalComponents/Buttons/SecondaryButton/SecondaryButton";
+import HeadingRegular from "../../GlobalComponents/Typography/HeadingRegular/HeadingRegular";
+import CardHeader from "../CardComponents/CardHeader/CardHeader";
+import CardWrapper from "../CardComponents/CardWrapper/CardWrapper";
+import { ReactComponent as RightArrow } from "../../../Assets/Images/Svgs/rightArrow.svg";
 
 export default function CardMaxTwoSpeakers(props: {
   time: string;

@@ -1,0 +1,66 @@
+
+// ----- Breakpoints ------\\
+$mobileS: 320px;
+$mobileM: 390px;
+$mobileL: 425px;
+$tablet: 600px;
+$tabletL: 768px;
+$desktopS: 1280px;
+$desktopM: 1440px;
+$desktopL: 1680px;
+$desktopXL: 1920px;
+
+@mixin mobileSUp {
+  @media only screen and (min-width: $mobileS) {
+      @content;
+  }
+}
+
+@mixin mobileMUp {
+  @media only screen and (min-width: $mobileM) {
+      @content;
+  }
+}
+
+@mixin mobileLUp {
+  @media only screen and (min-width: $mobileL) {
+      @content;
+  }
+}
+
+@mixin tabletUp {
+  @media only screen and (min-width: $tablet) {
+      @content;
+  }
+}
+
+@mixin tabletLUp {
+  @media only screen and (min-width: $tabletL) {
+      @content;
+  }
+}
+
+@mixin desktopUpS {
+  @media only screen and (min-width: $desktopS) {
+      @content;
+  }
+}
+
+@mixin desktopUpM {
+  @media only screen and (min-width: $desktopM) {
+      @content;
+  }
+}
+
+@mixin desktopUpL {
+  @media only screen and (min-width: $desktopL) {
+      @content;
+  }
+}
+
+
+@mixin desktopUPXL {
+  @media only screen and (min-width: $desktopXL) {
+      @content;
+  }
+}

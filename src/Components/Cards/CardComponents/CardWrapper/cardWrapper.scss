@@ -1,0 +1,34 @@
+@import '../../../../Assets/Theme/global.scss';
+
+.card-wrapper{
+  height: 487px;
+  padding: $s7;
+  background-color: $lightGray;
+
+  @include mobileLUp {
+    height: 429px;
+  }
+ 
+  @include tabletUp {
+    height: 524px;
+  }
+
+  @include desktopUpS {
+    height: 464px;
+    &.grid-span-1{
+      grid-column: span 1;
+    }
+
+    &.grid-span-2{
+      grid-column: span 2;
+    }
+  }
+
+  @include desktopUPXL {
+    height: 488px;
+  }
+
+  &.dark-gray{
+    background-color: $darkGray;
+  }
+}

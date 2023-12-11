@@ -1,0 +1,13 @@
+@import '../../../../Assets/Theme/global.scss';
+
+.secondary-button{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  padding: 0;
+  padding-bottom: $s3;
+
+  span{
+    padding-right: $s4;
+  }
+}

@@ -1,60 +1,33 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import CardMaxTwoSpeakers from "./Components/Cards/CardMaxTwoSpeakers";
-import Theme from "./Assets/Theme/ThemeProvider";
+import CardMaxTwoSpeakers from "./Components/Cards/CardMaxTwoSpeakers/CardMaxTwoSpeakers";
 import GlobalFonts from "./Assets/Fonts/fonts";
-import CardMaxFiveSpeakers from "./Components/Cards/CardMaxFiveSpeakers";
-import CardHighlightedSpeakers from "./Components/Cards/CardHighlightedSpeaker";
-import styled from "styled-components";
-import { device } from "./Assets/Theme/breakpoints";
-import HeadingJumbo from "./Components/GlobalComponents/Typography/HeadingJumbo";
-import Paragraph from "./Components/GlobalComponents/Typography/Paragraph";
-
-const MainBodyContainer = styled.div`
-  padding-left: ${(props) => props.theme.spacing.s7};
-  padding-right: ${(props) => props.theme.spacing.s7};
-
-  @media ${device.tabletUp} {
-    padding-left: ${(props) => props.theme.spacing.s9};
-    padding-right: ${(props) => props.theme.spacing.s9};
-  }
-
-  @media ${device.desktopUpS} {
-    padding-left: ${(props) => props.theme.spacing.s7};
-    padding-right: ${(props) => props.theme.spacing.s7};
-  }
-
-  @media ${device.desktopUpM} {
-    padding-left: ${(props) => props.theme.spacing.s10};
-    padding-right: ${(props) => props.theme.spacing.s10};
-  }
-
-  @media ${device.desktopUpL} {
-    max-width: 1248px;
-    margin: auto;
-  }
-`;
-
-const CardLayout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 24px;
-  grid-row-gap: 24px;
-  grid-auto-flow: dense;
-`;
+import CardMaxFiveSpeakers from "./Components/Cards/CardMaxFiveSpeakers/CardMaxFiveSpeakers";
+import CardHighlightedSpeakers from "./Components/Cards/CardHighlightedSpeaker/CardHighlightedSpeaker";
+import HeadingJumbo from "./Components/GlobalComponents/Typography/HeadingJumbo/HeadingJumbo";
+import Paragraph from "./Components/GlobalComponents/Typography/Paragraph/Paragraph";
+import SwitchButton from "./Components/GlobalComponents/Buttons/SwitchButton/SwitchButton";
+import "./App.scss";
 
 function App() {
   const { t } = useTranslation();
   console.log();
 
   return (
-    <Theme>
-      <MainBodyContainer>
-        <Paragraph text={t("subTitle")} />
-        <HeadingJumbo text={t("title")} />
-        <GlobalFonts />
-        <CardLayout>
+    <>
+      {/* <GlobalFonts /> */}
+      <div className="main-body">
+        <div className="main-body__header">
+          <div className="subtitle">
+            <Paragraph text={t("subTitle")} />
+          </div>
+          <div className="title">
+            <HeadingJumbo text={t("title")} />
+          </div>
+          <SwitchButton labels={["day 1", "day 2"]} stickyTop={true} />
+        </div>
+
+        <div className="main-body__card-layout">
           <CardMaxTwoSpeakers
             time={"15:00PM"}
             category={"panel discussion"}
@@ -147,9 +120,9 @@ function App() {
             }
             speaker={{}}
           />
-        </CardLayout>
-      </MainBodyContainer>
-    </Theme>
+        </div>
+      </div>
+    </>
   );
 }
 
