@@ -9,8 +9,11 @@ import ParagraphSmall from "../../../GlobalComponents/Typography/ParagraphSmall/
 import HeadingL from "../../../GlobalComponents/Typography/HeadingL/HeadingL";
 import { ReactComponent as CloseIcon } from "../../../../Assets/Images/Svgs/close.svg";
 import { ReactComponent as PlusIcon } from "../../../../Assets/Images/Svgs/plus.svg";
+import { SpeakerList } from "../../../../Types/AgendaTypes";
+import { getDisplayTime } from "../../../../Helpers/helpers";
+import SpeakerListRow from "../SpeakerListRow/SpeakerListRow";
 
-const animate = {
+const animateModal = {
   opacity: 1,
   scale: 1,
   transition: {
@@ -19,16 +22,46 @@ const animate = {
   },
 };
 
-const initial = {
+const initialModal = {
   opacity: 0,
   scale: 0.75,
 };
 
-export default function Modal(props: { setModal: CallableFunction }) {
-  const { setModal } = props;
+const animateBackdrop = {
+  opacity: 1,
+  transition: {
+    ease: "easeOut",
+    duration: 0.15,
+  },
+};
+
+const initialDrop = {
+  opacity: 0,
+};
+
+export default function Modal(props: {
+  setModal: CallableFunction;
+  time: string;
+  duration: string;
+  category: string;
+  bodyText: string;
+  speakers: SpeakerList[];
+  heading: string;
+}) {
+  const { setModal, time, duration, category, bodyText, speakers, heading } =
+    props;
   const { t } = useTranslation();
+  console.log(bodyText, speakers);
 
   function onCloseModal() {
+    setModal(false);
+  }
+
+  function getTimeLabelText() {
+    return `${getDisplayTime(time)} | ${duration}`;
+  }
+
+  function onOutsideModalClick() {
     setModal(false);
   }
 
@@ -41,41 +74,59 @@ export default function Modal(props: { setModal: CallableFunction }) {
   }, []);
 
   return (
-    <motion.div className={`modal`} initial={initial} animate={animate}>
-      <div className="modal__header">
-        <TimeLabel time="12:30" />
+    <motion.div
+      className="modal__backdrop"
+      initial={initialDrop}
+      animate={animateBackdrop}
+      onClick={onOutsideModalClick}
+    >
+      <motion.div
+        className="modal"
+        initial={initialModal}
+        animate={animateModal}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="modal__header">
+          <TimeLabel time={getTimeLabelText()} />
 
-        <SecondaryButton
-          text={t("close")}
-          onButtonClick={onCloseModal}
-          Icon={CloseIcon}
-        />
-      </div>
-      <div className="modal__timezone">
-        <ParagraphSmall bold={true} text={t("timeZone")} />
-      </div>
+          <SecondaryButton
+            text={t("close")}
+            onButtonClick={onCloseModal}
+            Icon={CloseIcon}
+          />
+        </div>
+        <div className="modal__timezone">
+          <ParagraphSmall bold={true} text={t("timeZone")} />
+        </div>
 
-      <div className="modal__keynote">
-        <Paragraph bold={true} text={t("keynote").toUpperCase()} />
-      </div>
+        <div className="modal__keynote">
+          <Paragraph bold={true} text={category.toUpperCase()} />
+        </div>
 
-      <div className="modal__title">
-        <HeadingL text="How Generative AI will Transform Planning and Decision-Making" />
-      </div>
+        <div className="modal__title">
+          <HeadingL text={heading} />
+        </div>
 
-      <div className="modal__body-text">
-        <Paragraph text="Join this keynote session to learn why Adidas decided to embark on this. the challenges and lessons learned, and the quantifiable business value it’s expecting to unlock. Join this keynote session to learn why Adidas decided to embark on this transformation journey, the challenges and lessons learned, and the quantifiable." />
-      </div>
+        <div className="modal__body-text">
+          <p
+            dangerouslySetInnerHTML={{ __html: bodyText }}
+            style={{ fontWeight: "bold" }}
+          />
+        </div>
 
-      <div className="modal__calendary-btn">
-        <SecondaryButton
-          text={t("addToCalendar")}
-          onButtonClick={onCloseModal}
-          Icon={PlusIcon}
-        />
-      </div>
+        <div className="modal__calendary-btn">
+          <SecondaryButton
+            text={t("addToCalendar")}
+            onButtonClick={onCloseModal}
+            Icon={PlusIcon}
+          />
+        </div>
 
-      <Paragraph bold={true} text={t("speakers").toUpperCase()} />
+        <div className="modal__speaker-label">
+          <Paragraph bold={true} text={t("speakers").toUpperCase()} />
+        </div>
+        <SpeakerListRow speakers={speakers} showSpeakerDetails={true} />
+      </motion.div>
     </motion.div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./secondaryButton.scss";
+import { motion } from "framer-motion";
 
 export default function SecondaryButton(props: {
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -9,9 +10,13 @@ export default function SecondaryButton(props: {
   const { text, onButtonClick, Icon } = props;
 
   return (
-    <button className="secondary-button" onClick={onButtonClick}>
+    <motion.button
+      whileTap={{ scale: 0.9 }}
+      className="secondary-button"
+      onClick={onButtonClick}
+    >
       <span>{text.toUpperCase()}</span>
       {Icon && <Icon />}
-    </button>
+    </motion.button>
   );
 }

@@ -1,6 +1,33 @@
+@import '../../../../Assets//Theme/global.scss';
+
 .card-header{
   display: flex;
   justify-content: space-between;
-  height: 29px;
-  align-items: center;
+  align-items: start;
+
+  &__textSection{
+    display: flex;  
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    @include desktopSup {
+      width: fit-content;
+      p{
+        margin-left: $s7;
+      }
+    }
+  }
+
+  .hoverIcon{
+    visibility: hidden;
+  }
+}
+
+.card-wrapper{
+  &:hover{
+    .hoverIcon{
+      visibility:visible;
+    }
+  }
 }

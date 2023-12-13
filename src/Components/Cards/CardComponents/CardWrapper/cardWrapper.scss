@@ -4,7 +4,13 @@
   height: 487px;
   padding: $s7;
   background-color: $lightGray;
-
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  
   @include mobileLUp {
     height: 429px;
   }
@@ -13,7 +19,7 @@
     height: 524px;
   }
 
-  @include desktopUpS {
+  @include desktopSup {
     height: 464px;
     &.grid-span-1{
       grid-column: span 1;
@@ -24,11 +30,7 @@
     }
   }
 
-  @include desktopUPXL {
+  @include desktopXLUP {
     height: 488px;
-  }
-
-  &.dark-gray{
-    background-color: $darkGray;
   }
 }

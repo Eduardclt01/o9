@@ -1,6 +1,11 @@
 @import '../../../Assets/Theme/global.scss';
 
-.card-highlighted-speaker{
+.state-container{
+  position: relative;
+  overflow: hidden;
+}
+
+.card-highlighted-speaker, .card-highlighted-speaker-hover{
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -16,10 +21,25 @@
     display: flex;
     justify-content: space-between;
     font-size: $f4;
+    align-items: center;
   }
 
   &__header{
     display: flex;
     justify-content: space-between;
+  }
+}
+
+.hover{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.card-highlighted-speaker-hover{
+  &__company-details{
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -16,7 +16,7 @@
 
   &__button{
     cursor: pointer;
-    color: $white;
+    color: $black;
     font-size: $f3;
     line-height: 1;
     width: fit-content;
@@ -38,5 +38,9 @@
     position: absolute;
     height: 40px;
     z-index: 2;
+  }
+
+  .selected-label{
+    color: $white;
   }
 }

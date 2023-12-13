@@ -1,114 +1,62 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import CardMaxTwoSpeakers from "./Components/Cards/CardMaxTwoSpeakers/CardMaxTwoSpeakers";
-import CardMaxFiveSpeakers from "./Components/Cards/CardMaxFiveSpeakers/CardMaxFiveSpeakers";
-import CardHighlightedSpeakers from "./Components/Cards/CardHighlightedSpeaker/CardHighlightedSpeaker";
-import HeadingJumbo from "./Components/GlobalComponents/Typography/HeadingJumbo/HeadingJumbo";
-import Paragraph from "./Components/GlobalComponents/Typography/Paragraph/Paragraph";
-import SwitchButton from "./Components/GlobalComponents/Buttons/SwitchButton/SwitchButton";
+import React, { useEffect } from "react";
 import "./App.scss";
 import AgendaHeader from "./Components/GlobalComponents/AgendaHeader/AgendaHeader";
+import { getPostData } from "./Api/base";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setAllSpeakerList,
+  setSelectedDay,
+  setSpeakersFilteredOnDay,
+} from "./Context/agendaContext";
+import { AgendaState, KeynoteBlock } from "./Types/AgendaTypes";
+import CardContainer from "./Components/GlobalComponents/CardContainer/CardContainer";
 
 function App() {
+  const dispatch = useDispatch();
+  const agendaState = useSelector(
+    (state: { agendaState: AgendaState }) => state.agendaState
+  );
+
+  function setPostData() {
+    getPostData("41298")
+      .then((res) => {
+        dispatch(setAllSpeakerList(res?.data?.data?.blocks[0]?.innerBlocks));
+        dispatch(setSelectedDay(0));
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        console.log(false);
+      });
+  }
+
+  function filterBlocksByDay() {
+    return agendaState.allSpeakerList?.filter(
+      (item: KeynoteBlock) =>
+        item.attrs.day.toLowerCase() === `day ${agendaState.selectedDay + 1}`
+    );
+  }
+
+  useEffect(() => {
+    setPostData();
+  }, []);
+
+  useEffect(() => {
+    const blocks = filterBlocksByDay();
+    dispatch(setSpeakersFilteredOnDay(blocks));
+  }, [agendaState.selectedDay]);
+
   return (
     <>
       <div className="main-body">
         <AgendaHeader />
 
-        <div className="main-body__card-layout">
-          <CardMaxTwoSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
+        {agendaState.speakersFilteredOnDay && (
+          <CardContainer
+            speakersFilteredOnDay={agendaState.speakersFilteredOnDay}
           />
-          <CardMaxFiveSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardHighlightedSpeakers
-            time={"15:00PM"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speaker={{}}
-          />
-          <CardMaxTwoSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardMaxFiveSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardHighlightedSpeakers
-            time={"15:00PM"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speaker={{}}
-          />
-          <CardMaxTwoSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardMaxFiveSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardHighlightedSpeakers
-            time={"15:00PM"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speaker={{}}
-          />
-          <CardMaxTwoSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardMaxFiveSpeakers
-            time={"15:00PM"}
-            category={"panel discussion"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speakers={{}}
-          />
-          <CardHighlightedSpeakers
-            time={"15:00PM"}
-            heading={
-              "This is a heading H5, with a 96 max character. Ideal character number is 76. Space for 4 lines. "
-            }
-            speaker={{}}
-          />
-        </div>
+        )}
       </div>
     </>
   );

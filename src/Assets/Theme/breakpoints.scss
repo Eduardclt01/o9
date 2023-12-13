@@ -40,26 +40,26 @@ $desktopXL: 1920px;
   }
 }
 
-@mixin desktopUpS {
+@mixin desktopSup {
   @media only screen and (min-width: $desktopS) {
       @content;
   }
 }
 
-@mixin desktopUpM {
+@mixin desktopMUp {
   @media only screen and (min-width: $desktopM) {
       @content;
   }
 }
 
-@mixin desktopUpL {
+@mixin desktopLUp {
   @media only screen and (min-width: $desktopL) {
       @content;
   }
 }
 
 
-@mixin desktopUPXL {
+@mixin desktopXLUP {
   @media only screen and (min-width: $desktopXL) {
       @content;
   }

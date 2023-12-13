@@ -6,12 +6,28 @@
   color: $primary;
 }
 
+.primary-bg-color{
+  background-color: $primary;
+}
+
+.dark-gray-bg-color{
+  background-color: $darkGray;
+}
+
 // ---- HELPERS ---- \\
 .show-desktop-only{
   display: none;
 
-  @include desktopUpS {
+  @include desktopSup {
     display: initial;
+  }
+}
+
+.show-mobile-only{
+  display: initial;
+
+  @include desktopSup {
+    display: none;
   }
 }
 

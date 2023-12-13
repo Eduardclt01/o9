@@ -6,14 +6,21 @@ import "./switchButton.scss";
 export default function SwitchButton(props: {
   labels: any;
   stickyTop?: boolean;
+  onButtonClick: CallableFunction;
+  selectedItem: number;
 }) {
-  const { labels, stickyTop } = props;
+  const { labels, stickyTop, onButtonClick, selectedItem } = props;
   const [bubbleLeftPos, setBubbleLeftPos] = useState("0");
   const labelCount = labels.length;
 
-  function onLabelClick(index: number) {
+  function setLabelStyle(index: number) {
     const calculatedLeft = (index / labelCount) * 100;
     setBubbleLeftPos(calculatedLeft.toString() + "%");
+  }
+
+  function onLabelClick(index: number) {
+    setLabelStyle(index);
+    onButtonClick(index);
   }
 
   return (
@@ -28,7 +35,9 @@ export default function SwitchButton(props: {
 
         {labels.map((label: string, index: number) => (
           <span
-            className="switch-button__button"
+            className={`switch-button__button ${
+              selectedItem === index ? "selected-label" : ""
+            }`}
             key={index}
             onClick={() => {
               onLabelClick(index);

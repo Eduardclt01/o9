@@ -9,17 +9,17 @@
     padding-right: $s9;
   }
 
-  @include desktopUpS {
+  @include desktopSup {
     padding-left: $s7;
     padding-right: $s7;
   }
 
-  @include desktopUpM {
+  @include desktopMUp {
     padding-left: $s10;
     padding-right: $s10;
   }
 
-  @include desktopUpL {
+  @include desktopLUp {
     max-width: 1248px;
     margin: auto;
   }
@@ -33,7 +33,7 @@
     grid-auto-flow: dense;
 
     @include tabletLUp {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

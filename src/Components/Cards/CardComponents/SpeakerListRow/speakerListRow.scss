@@ -1,0 +1,38 @@
+@import '../../../../Assets/Theme/global.scss';
+
+.speaker-row{
+  display: flex;
+  grid-column-gap: $s43;
+  overflow: scroll;
+  margin-right: -$s7;
+  padding-right: $s7;
+
+  &::-webkit-scrollbar {
+    background: transparent; /* make scrollbar transparent */
+    width: 0px;
+  }
+    
+
+  .speaker{ 
+    display: flex;
+    flex-direction: column;
+
+    &__image{
+      object-fit: cover;
+      width: 108px;
+      height: 120px;
+    }
+
+    &__logo{
+      width: 70px;
+      height: 55px;
+    }
+
+    &__speaker-details{
+      max-width: 120px;
+      p{
+        margin-top: $s7;
+      }
+    }
+  }
+}

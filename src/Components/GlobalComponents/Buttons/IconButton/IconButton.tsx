@@ -1,5 +1,6 @@
 import React from "react";
 import "./iconButton.scss";
+import { motion } from "framer-motion";
 
 export default function IconButton(props: {
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -7,9 +8,17 @@ export default function IconButton(props: {
 }) {
   const { Icon, onButtonClick } = props;
 
+  function onIconButtonClick() {
+    onButtonClick();
+  }
+
   return (
-    <div className="icon-button" onClick={onButtonClick()}>
+    <motion.div
+      whileTap={{ scale: 0.9 }}
+      className="icon-button"
+      onClick={onIconButtonClick}
+    >
       <Icon />
-    </div>
+    </motion.div>
   );
 }

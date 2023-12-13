@@ -9,14 +9,18 @@
   width: 100%;
   padding: $s7;
   box-sizing: border-box;
+  
+  overflow-y: scroll;
+  z-index: 4;
 
-  @include desktopUpS {
+  @include desktopSup {
     padding: $s8888;
     width: 744px;
     left: 50%;
     margin-left: -372px;
     margin-top: 34px;
     height: fit-content;
+    max-height: 95vh;
   }
 
   &__header{
@@ -32,7 +36,7 @@
   &__timezone{
     margin-bottom: $s8888;
 
-    @include desktopUpS {
+    @include desktopSup {
       margin-bottom: $s9;
     }
   }
@@ -44,5 +48,19 @@
 
   &__calendary-btn{
     margin-bottom: $s99;
+  }
+
+  &__speaker-label{
+    margin-bottom: $s88;
+  }
+
+  &__backdrop{
+   background-color: rgba(36, 36, 36, 0.40);
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1;
   }
 }
