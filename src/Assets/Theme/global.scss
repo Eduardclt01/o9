@@ -16,18 +16,18 @@
 
 // ---- HELPERS ---- \\
 .show-desktop-only{
-  visibility: hidden;
+  display: none;
 
   @include desktopSup {
-    visibility: visible;
+    display: initial;
   }
 }
 
 .show-mobile-only{
-  visibility: visible;
+  display: initial;
 
   @include desktopSup {
-    visibility: hidden;
+    display: none;
   }
 }
 

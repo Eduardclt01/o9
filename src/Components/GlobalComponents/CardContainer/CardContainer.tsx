@@ -1,4 +1,5 @@
 import React from "react";
+import "./cardContainer.scss";
 import { KeynoteBlock, coverImage } from "../../../Types/AgendaTypes";
 import CardHighlightedSpeakers from "../../Cards/CardHighlightedSpeaker/CardHighlightedSpeaker";
 import CardRegular from "../../Cards/CardRegular/CardRegular";

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AgendaState } from "../Types/AgendaTypes";
 
 const initialState = {
-  selectedDay: 1,
+  selectedDay: 0,
 } as AgendaState;
 
 const agendaContext = createSlice({

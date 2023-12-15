@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./switchButton.scss";
 
-// TODO type
 export default function SwitchButton(props: {
-  labels: any;
+  labels: string[];
   stickyTop?: boolean;
   onButtonClick: CallableFunction;
   selectedItem: number;

@@ -9,6 +9,7 @@
   min-width: 100%;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 
   @include mobileLUp {
     height: 429px;

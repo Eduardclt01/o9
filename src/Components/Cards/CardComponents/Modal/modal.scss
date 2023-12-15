@@ -10,6 +10,7 @@
   padding: $space9;
   box-sizing: border-box;
   overflow-y: scroll;
+  cursor: initial;
 
   @include desktopSup {
     padding: $space14;

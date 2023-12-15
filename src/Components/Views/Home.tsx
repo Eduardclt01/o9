@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AgendaState, KeynoteBlock } from "../../Types/AgendaTypes";
@@ -10,52 +10,68 @@ import {
 } from "../../Context/agendaContext";
 import AgendaHeader from "../GlobalComponents/AgendaHeader/AgendaHeader";
 import CardContainer from "../GlobalComponents/CardContainer/CardContainer";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const agendaState = useSelector(
     (state: { agendaState: AgendaState }) => state.agendaState
   );
 
-  function setPostData() {
-    getPostData("41298")
+  const { t } = useTranslation();
+
+  function setPostData(postId: string) {
+    setLoading(true);
+    setError(false);
+    getPostData(postId)
       .then((res) => {
         dispatch(setAllSpeakerList(res?.data?.data?.blocks[0]?.innerBlocks));
         dispatch(setSelectedDay(0));
       })
       .catch((error) => {
         console.log(error);
+        setError(true);
       })
       .finally(() => {
-        console.log(false);
+        setLoading(false);
       });
   }
 
-  function filterBlocksByDay() {
+  function getFilterBlocksByDay() {
     return agendaState.allSpeakerList?.filter(
       (item: KeynoteBlock) =>
         item.attrs.day.toLowerCase() === `day ${agendaState.selectedDay + 1}`
     );
   }
 
+  function setFilteredBlocks() {
+    const blocks = getFilterBlocksByDay();
+    dispatch(setSpeakersFilteredOnDay(blocks));
+  }
+
   useEffect(() => {
-    setPostData();
+    setPostData("41298");
   }, []);
 
   useEffect(() => {
-    const blocks = filterBlocksByDay();
-    dispatch(setSpeakersFilteredOnDay(blocks));
-  }, [agendaState.selectedDay]);
+    setFilteredBlocks();
+  }, [agendaState.selectedDay, agendaState.allSpeakerList]);
 
   return (
     <div className="home">
       <AgendaHeader />
 
-      {agendaState.speakersFilteredOnDay && (
+      {!loading && !error && agendaState.speakersFilteredOnDay && (
         <CardContainer
           speakersFilteredOnDay={agendaState.speakersFilteredOnDay}
         />
       )}
+
+      {error && <p>{t("error")}</p>}
+      {loading && <p>{t("loading")}</p>}
     </div>
   );
 }

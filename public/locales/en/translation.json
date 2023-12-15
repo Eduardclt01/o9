@@ -5,5 +5,7 @@
   "keynote": "keynote",
   "close": "close",
   "addToCalendar": "Add to calendar",
-  "speakers": "speakers"
+  "speakers": "speakers",
+  "loading": "Loading...",
+  "error": "There was an error in retreiving the data..."
 }
