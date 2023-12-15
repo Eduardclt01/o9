@@ -8,22 +8,18 @@ import { ReactComponent as RightUpArrow } from "../../../../Assets/Images/Svgs/r
 export default function CardHeader(props: {
   time: string;
   labelText: string;
-  onIconClick: CallableFunction;
+  testId?: string;
 }) {
-  const { time, labelText, onIconClick } = props;
-
-  function onIconButtonClick() {
-    onIconClick();
-  }
+  const { time, labelText, testId } = props;
 
   return (
-    <div className="card-header">
+    <div className="card-header" data-testid={testId}>
       <div className="card-header__textSection">
         <TimeLabel time={time} />
         <LabelMedium text={labelText} />
       </div>
       <div className="show-desktop-only hoverIcon">
-        <IconButton Icon={RightUpArrow} onButtonClick={onIconButtonClick} />
+        <IconButton Icon={RightUpArrow} />
       </div>
     </div>
   );

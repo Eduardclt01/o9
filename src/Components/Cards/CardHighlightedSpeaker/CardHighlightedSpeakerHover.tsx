@@ -20,12 +20,7 @@ export default function CardHighlightedSpeakerHover(props: {
       <div className="card-highlighted-speaker-hover">
         <div className="card-highlighted-speaker__header">
           <TimeLabel time={getDisplayTime(time)} />
-          <IconButton
-            Icon={RightUpArrowInverse}
-            onButtonClick={() => {
-              console.log();
-            }}
-          />
+          <IconButton Icon={RightUpArrowInverse} />
         </div>
 
         <div>

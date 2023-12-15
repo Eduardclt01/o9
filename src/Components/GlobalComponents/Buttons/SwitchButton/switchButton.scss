@@ -2,7 +2,7 @@
 
 .switch-button{
   background-color: $lightGray;
-  padding: $s4;
+  padding: $space4;
   width: fit-content;
   border-radius: 27px;
   height: 56px;
@@ -12,12 +12,14 @@
   &.sticky{
     position: sticky;
     top: 10px;
+    margin-bottom: $space15;
+    z-index: 10;
   }
 
   &__button{
     cursor: pointer;
     color: $black;
-    font-size: $f3;
+    font-size: $font3;
     line-height: 1;
     width: fit-content;
     width: 83px;

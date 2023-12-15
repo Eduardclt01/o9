@@ -21,28 +21,40 @@ export default function AgendaHeader() {
   }
 
   return (
-    <div className="agenda-header">
-      <div>
-        <div className="subtitle">
-          <Paragraph text={t("subTitle")} />
+    <>
+      <div className="agenda-header">
+        <div>
+          <div className="subtitle">
+            <Paragraph testId="agendaHeader-subtitle" text={t("subTitle")} />
+          </div>
+          <div className="title">
+            <HeadingJumbo testId="agendaHeader-title" text={t("title")} />
+          </div>
         </div>
-        <div className="title">
-          <HeadingJumbo text={t("title")} />
+
+        <div className="button-container show-desktop-only">
+          <SwitchButton
+            testId="agendaHeader-switchDesktop"
+            labels={["DAY 1", "DAY 2"]}
+            onButtonClick={onSwitchDayClick}
+            selectedItem={agendaState.selectedDay}
+          />
+        </div>
+
+        <div className="timezone show-desktop-only">
+          <Paragraph testId="agendaHeader-timezone" text={t("timeZone")} />
         </div>
       </div>
 
-      <div className="button-container">
+      <div className="button-container--sticky show-mobile-only">
         <SwitchButton
+          testId="agendaHeader-switchMobile"
           labels={["DAY 1", "DAY 2"]}
           stickyTop={true}
           onButtonClick={onSwitchDayClick}
           selectedItem={agendaState.selectedDay}
         />
       </div>
-
-      <div className="timezone show-desktop-only">
-        <Paragraph text={t("timeZone")} />
-      </div>
-    </div>
+    </>
   );
 }

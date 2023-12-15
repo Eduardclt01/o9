@@ -1,0 +1,26 @@
+@import '../../Assets//Theme/global.scss';
+
+.home {
+  padding-left: $space9;
+  padding-right: $space9;
+
+  @include tabletUp {
+    padding-left: $space15;
+    padding-right: $space15;
+  }
+
+  @include desktopSup {
+    padding-left: $space9;
+    padding-right: $space9;
+  }
+
+  @include desktopMUp {
+    padding-left: $space17;
+    padding-right: $space17;
+  }
+
+  @include desktopLUp {
+    max-width: 1248px;
+    margin: auto;
+  }
+}

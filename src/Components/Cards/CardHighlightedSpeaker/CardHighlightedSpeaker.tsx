@@ -10,15 +10,22 @@ import { motion } from "framer-motion";
 import { getDisplayTime } from "../../../Helpers/helpers";
 import { SpeakerList, coverImage } from "../../../Types/AgendaTypes";
 import HeadingXL from "../../GlobalComponents/Typography/HeadingXL/HeadingXL";
+import Modal from "../CardComponents/Modal/Modal";
 
 export default function CardHighlightedSpeakers(props: {
   time: string;
   heading: string;
   speakers: SpeakerList[];
   coverImage: coverImage;
+  duration: string;
+  category: string;
+  bodyText: string;
 }) {
   const [cardHover, setCardHover] = useState(false);
-  const { time, heading, speakers, coverImage } = props;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const { time, heading, speakers, coverImage, duration, category, bodyText } =
+    props;
   const firstSpeaker = speakers[0];
 
   function hoverEnter() {
@@ -29,34 +36,65 @@ export default function CardHighlightedSpeakers(props: {
     setCardHover(false);
   }
 
+  function setModalClose() {
+    setIsModalOpen(false);
+  }
+
+  function setModalOpen() {
+    setIsModalOpen(true);
+  }
+
   return (
     <div
       className="state-container"
       onMouseEnter={hoverEnter}
       onMouseLeave={hoverLeave}
+      onClick={setModalOpen}
     >
-      <CardWrapper backgroundImageObject={coverImage}>
-        <div className="card-highlighted-speaker">
+      <CardWrapper
+        backgroundImageObject={coverImage}
+        testId="cardHighligted-wrapper"
+      >
+        <div className="card-highlighted-speaker" onClick={setModalOpen}>
           <div className="card-highlighted-speaker__header">
             <TimeLabel time={getDisplayTime(time)} />
-            <IconButton
-              Icon={RightUpArrow}
-              onButtonClick={() => {
-                console.log();
-              }}
-            />
+            <IconButton Icon={RightUpArrow} />
           </div>
 
           <div>
-            <HeadingXL color={"primary-color"} text={firstSpeaker.name} />
-            <HeadingLarge color={"primary-color"} text={heading} />
+            <HeadingXL
+              testId="cardHighligted-speakerName"
+              color={"primary-color"}
+              text={firstSpeaker.name}
+            />
+            <HeadingLarge
+              testId="cardHighligted-heading"
+              color={"primary-color"}
+              text={heading}
+            />
 
             <div className="card-highlighted-speaker__company-details">
-              <p>{firstSpeaker.position}</p>
-              <img src={firstSpeaker.company_logo[0].mediaUrl} />
+              <p data-testid="cardHighligted-speakerpos">
+                {firstSpeaker.position}
+              </p>
+              <img
+                data-testid="cardHighligted-speakerimg"
+                src={firstSpeaker.company_logo[0].mediaUrl}
+              />
             </div>
           </div>
         </div>
+        {isModalOpen && (
+          <Modal
+            time={time}
+            duration={duration.toString()}
+            category={category}
+            bodyText={bodyText}
+            speakers={speakers}
+            setModalClose={setModalClose}
+            heading={heading}
+          />
+        )}
       </CardWrapper>
       <motion.div
         className="hover"

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./modal.scss";
 import { motion } from "framer-motion";
 import SecondaryButton from "../../../GlobalComponents/Buttons/SecondaryButton/SecondaryButton";
@@ -40,7 +40,7 @@ const initialDrop = {
 };
 
 export default function Modal(props: {
-  setModal: CallableFunction;
+  setModalClose: CallableFunction;
   time: string;
   duration: string;
   category: string;
@@ -48,42 +48,47 @@ export default function Modal(props: {
   speakers: SpeakerList[];
   heading: string;
 }) {
-  const { setModal, time, duration, category, bodyText, speakers, heading } =
-    props;
+  const {
+    setModalClose,
+    time,
+    duration,
+    category,
+    bodyText,
+    speakers,
+    heading,
+  } = props;
   const { t } = useTranslation();
-  console.log(bodyText, speakers);
 
   function onCloseModal() {
-    setModal(false);
+    setModalClose();
   }
 
   function getTimeLabelText() {
     return `${getDisplayTime(time)} | ${duration}`;
   }
 
-  function onOutsideModalClick() {
-    setModal(false);
+  function addToGoogleCalendar() {
+    const timeString = time.replace(/-/g, "").replace(/:/g, "");
+    const link = `http://www.google.com/calendar/event?action=TEMPLATE&dates=${timeString}/${timeString}&text=${heading}`;
+    window.open(link, "_blank");
   }
 
-  useEffect(() => {
-    // prevent body scroll when modal is open
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
+  function handleAddToCalendarClick() {
+    addToGoogleCalendar();
+  }
 
   return (
     <motion.div
       className="modal__backdrop"
       initial={initialDrop}
       animate={animateBackdrop}
-      onClick={onOutsideModalClick}
+      onClick={onCloseModal}
     >
       <motion.div
         className="modal"
         initial={initialModal}
         animate={animateModal}
+        // dont fire onOutsideModalClick
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__header">
@@ -117,7 +122,7 @@ export default function Modal(props: {
         <div className="modal__calendary-btn">
           <SecondaryButton
             text={t("addToCalendar")}
-            onButtonClick={onCloseModal}
+            onButtonClick={handleAddToCalendarClick}
             Icon={PlusIcon}
           />
         </div>

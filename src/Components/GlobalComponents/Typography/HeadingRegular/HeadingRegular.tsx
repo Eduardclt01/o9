@@ -1,8 +1,15 @@
 import React from "react";
 import "./headingRegular.scss";
 
-export default function HeadingRegular(props: { text: string }) {
-  const { text } = props;
+export default function HeadingRegular(props: {
+  text: string;
+  testId?: string;
+}) {
+  const { text, testId } = props;
 
-  return <h5 className="typography-heading-regular">{text}</h5>;
+  return (
+    <h5 data-testid={testId} className="typography-heading-regular">
+      {text}
+    </h5>
+  );
 }

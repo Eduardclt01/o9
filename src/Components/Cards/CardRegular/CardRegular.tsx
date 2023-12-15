@@ -4,13 +4,13 @@ import HeadingRegular from "../../GlobalComponents/Typography/HeadingRegular/Hea
 import CardHeader from "../CardComponents/CardHeader/CardHeader";
 import CardWrapper from "../CardComponents/CardWrapper/CardWrapper";
 import { ReactComponent as RightArrow } from "../../../Assets/Images/Svgs/rightArrow.svg";
-import Modal from "../CardComponents/CardPopUp/Modal";
+import Modal from "../CardComponents/Modal/Modal";
 import { SpeakerList } from "../../../Types/AgendaTypes";
-import "./card.scss";
+import "./cardRegular.scss";
 import { getDisplayTime } from "../../../Helpers/helpers";
 import SpeakerListRow from "../CardComponents/SpeakerListRow/SpeakerListRow";
 
-export default function Card(props: {
+export default function CardRegular(props: {
   time: string;
   category: string;
   heading: string;
@@ -28,30 +28,30 @@ export default function Card(props: {
     setIsModalOpen(true);
   }
 
-  function onIconHeaderClick() {
-    setIsModalOpen(true);
-  }
-
   function setModalClose() {
     setIsModalOpen(false);
   }
 
+  function setModalOpen() {
+    setIsModalOpen(true);
+  }
+
   return (
     <CardWrapper
-      setModalClose={setModalClose}
       backgroundColor={maxTwoVariant ? "" : "dark-gray"}
       gridSpanAmount={maxTwoVariant ? 1 : 2}
+      testId="card-wrapper"
     >
-      <div className="card-row">
+      <div className="card-row" onClick={setModalOpen}>
         <div>
           <CardHeader
+            testId="card-header"
             time={getDisplayTime(time)}
             labelText={categoryText}
-            onIconClick={onIconHeaderClick}
           />
 
           <div>
-            <HeadingRegular text={heading} />
+            <HeadingRegular testId="card-heading" text={heading} />
             <div className="show-mobile-only">
               <SecondaryButton
                 text="learn more"
@@ -62,7 +62,7 @@ export default function Card(props: {
           </div>
         </div>
 
-        <SpeakerListRow speakers={speakers} />
+        <SpeakerListRow testId="card-speakerrow" speakers={speakers} />
       </div>
       {isModalOpen && (
         <Modal
@@ -71,7 +71,7 @@ export default function Card(props: {
           category={category}
           bodyText={bodyText}
           speakers={speakers}
-          setModal={setIsModalOpen}
+          setModalClose={setModalClose}
           heading={heading}
         />
       )}

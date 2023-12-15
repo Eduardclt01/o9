@@ -2,10 +2,10 @@
 
 .speaker-row{
   display: flex;
-  grid-column-gap: $s43;
+  grid-column-gap: $space5;
   overflow: scroll;
-  margin-right: -$s7;
-  padding-right: $s7;
+  margin-right: -$space9;
+  padding-right: $space9;
 
   &::-webkit-scrollbar {
     background: transparent; /* make scrollbar transparent */
@@ -31,7 +31,7 @@
     &__speaker-details{
       max-width: 120px;
       p{
-        margin-top: $s7;
+        margin-top: $space9;
       }
     }
   }

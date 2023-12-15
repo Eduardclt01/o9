@@ -6,12 +6,13 @@ import ParagraphSmall from "../../../GlobalComponents/Typography/ParagraphSmall/
 export default function SpeakerListRow(props: {
   speakers: SpeakerList[];
   showSpeakerDetails?: boolean;
+  testId?: string;
 }) {
-  const { speakers, showSpeakerDetails } = props;
+  const { speakers, showSpeakerDetails, testId } = props;
   return (
-    <div className="speaker-row">
-      {speakers.map((speaker: SpeakerList) => (
-        <div className="speaker">
+    <div data-testid={testId} className="speaker-row">
+      {speakers.map((speaker: SpeakerList, index: number) => (
+        <div className="speaker" key={index}>
           <img
             className="speaker__image"
             src={speaker.image.url}

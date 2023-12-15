@@ -1,16 +1,15 @@
 @import '../../../Assets/Theme/global.scss';
 
 .agenda-header{
-  margin-top: $s9;
-  margin-bottom: $s9;
+  margin-top: $space15;
   white-space: pre-line;
   
   .subtitle{
-    margin-bottom: $s88;
+    margin-bottom: $space11;
   }
 
   .title{
-    margin-bottom: $s888;
+    margin-bottom: $space12;
   }
 
   .timezone{
@@ -22,6 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
+    margin-bottom: $space15;
 
     >div{
       flex: 1 1 0px;

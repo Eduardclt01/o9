@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 export default function IconButton(props: {
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  onButtonClick: CallableFunction;
+  onButtonClick?: CallableFunction;
 }) {
   const { Icon, onButtonClick } = props;
 
   function onIconButtonClick() {
-    onButtonClick();
+    if (onButtonClick) {
+      onButtonClick();
+    }
   }
 
   return (

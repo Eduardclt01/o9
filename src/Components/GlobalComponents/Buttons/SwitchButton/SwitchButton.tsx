@@ -8,8 +8,9 @@ export default function SwitchButton(props: {
   stickyTop?: boolean;
   onButtonClick: CallableFunction;
   selectedItem: number;
+  testId?: string;
 }) {
-  const { labels, stickyTop, onButtonClick, selectedItem } = props;
+  const { labels, stickyTop, onButtonClick, selectedItem, testId } = props;
   const [bubbleLeftPos, setBubbleLeftPos] = useState("0");
   const labelCount = labels.length;
 
@@ -24,7 +25,10 @@ export default function SwitchButton(props: {
   }
 
   return (
-    <div className={`switch-button ${stickyTop ? "sticky" : ""}`}>
+    <div
+      data-testid={testId}
+      className={`switch-button ${stickyTop ? "sticky" : ""}`}
+    >
       <div className="switch-button__wrapper">
         <motion.div
           layout

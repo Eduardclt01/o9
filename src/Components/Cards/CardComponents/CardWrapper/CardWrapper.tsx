@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./cardWrapper.scss";
 import { motion } from "framer-motion";
 import cx from "classnames";
@@ -8,37 +8,20 @@ export default function CardWrapper(props: {
   children: React.ReactNode;
   backgroundColor?: string;
   gridSpanAmount?: number;
-  setModalClose?: CallableFunction;
   backgroundImageObject?: coverImage;
+  testId?: string;
 }) {
   const {
     children,
     backgroundColor,
     gridSpanAmount,
-    setModalClose,
     backgroundImageObject,
+    testId,
   } = props;
 
-  function escFunction(event: { key: string }) {
-    if (event.key === "Escape" && setModalClose) {
-      setModalClose();
-    }
-  }
-
-  useEffect(() => {
-    if (setModalClose) {
-      document.addEventListener("keydown", escFunction, false);
-    }
-    return () => {
-      if (setModalClose) {
-        document.removeEventListener("keydown", escFunction, false);
-      }
-    };
-  }, []);
-
-  console.log(backgroundImageObject?.url);
   return (
     <motion.div
+      data-testid={testId}
       className={cx("card-wrapper", {
         "grid-span-1": gridSpanAmount == 1,
         "grid-span-2": gridSpanAmount == 2,

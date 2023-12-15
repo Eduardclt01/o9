@@ -5,14 +5,14 @@
   border: none;
   border-bottom: 1px solid;
   padding: 0;
-  padding-bottom: $s3;
+  padding-bottom: $space3;
   cursor: pointer;
   height: 20px;
   display: flex;
   align-items: center;
 
   span {
-    padding-right: $s4;
+    padding-right: $space4;
   }
 
   svg {

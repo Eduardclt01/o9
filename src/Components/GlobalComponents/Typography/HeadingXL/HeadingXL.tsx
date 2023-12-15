@@ -1,10 +1,19 @@
 import React from "react";
 import "./headingXl.scss";
 
-export default function HeadingXL(props: { text: string; color?: string }) {
-  const { text, color } = props;
+export default function HeadingXL(props: {
+  text: string;
+  color?: string;
+  testId?: string;
+}) {
+  const { text, color, testId } = props;
 
   return (
-    <h3 className={`typography-heading-Xl ${color ? color : ""}`}>{text}</h3>
+    <h3
+      data-testid={testId}
+      className={`typography-heading-Xl ${color ? color : ""}`}
+    >
+      {text}
+    </h3>
   );
 }
