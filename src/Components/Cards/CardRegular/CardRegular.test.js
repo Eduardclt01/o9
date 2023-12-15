@@ -1,16 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import TestWrapper from "../../../TestWrapper";
-import CardHighlightedSpeakers from "./CardHighlightedSpeakerInitial";
+import CardRegular from "./CardRegular";
 
 const singleCardMock = {
   blockName: "o9/event-agenda-item",
   attrs: {
-    coverImage: {
-      id: 41272,
-      url: "https://staging17.o9solutions.com/wp-content/uploads/2023/11/Place-the-image.png",
-      alt: "Place the image",
-    },
     title:
       "Authoritatively syndicate 24/365 core competencies vis-a-vis superior technologies.",
     startTime: "2023-03-28T12:31:44",
@@ -67,10 +62,10 @@ const mock = function () {
 //--> assign mock directly without jest.fn
 window.IntersectionObserver = mock;
 
-test("Render card highlighted speakers", async () => {
+test("Render card max 2 speakers", async () => {
   render(
     <TestWrapper>
-      <CardHighlightedSpeakers
+      <CardRegular
         time={singleCardMock.attrs.startTime}
         category={singleCardMock.attrs.category}
         heading={singleCardMock.attrs.title}
@@ -82,24 +77,44 @@ test("Render card highlighted speakers", async () => {
     </TestWrapper>
   );
 
-  const wrapper = await screen.findByTestId("cardHighligted-wrapper");
-  const speakerName = await screen.findByTestId("cardHighligted-speakerName");
-  const heading = await screen.findByTestId("cardHighligted-heading");
-  const speakerpos = await screen.findByTestId("cardHighligted-speakerpos");
-  const speakerimg = await screen.findByTestId("cardHighligted-speakerimg");
+  const wrapper = await screen.findByTestId("card-wrapper");
+  const heading = await screen.findByTestId("card-heading");
+  const speakerrow = await screen.findByTestId("card-speakerrow");
+  const header = await screen.findByTestId("card-header");
 
-  expect(wrapper).toHaveStyle(
-    `background-image: url(${singleCardMock.attrs.coverImage.url})`
-  );
-  expect(speakerName).toHaveTextContent(
-    singleCardMock.attrs.speakerList[0].name
-  );
+  expect(wrapper).toHaveClass("grid-span-1");
   expect(heading).toHaveTextContent(singleCardMock.attrs.title);
-  expect(speakerpos).toHaveTextContent(
-    singleCardMock.attrs.speakerList[0].position
+  expect(header).toHaveTextContent(singleCardMock.attrs.category);
+  expect(speakerrow.children).toHaveLength(1);
+});
+
+test("Render card max 5 speakers", async () => {
+  render(
+    <TestWrapper>
+      <CardRegular
+        time={singleCardMock.attrs.startTime}
+        category={singleCardMock.attrs.category}
+        heading={singleCardMock.attrs.title}
+        speakers={[
+          ...singleCardMock.attrs.speakerList,
+          ...singleCardMock.attrs.speakerList,
+          ...singleCardMock.attrs.speakerList,
+        ]}
+        duration={singleCardMock.attrs.duration}
+        bodyText={singleCardMock.innerBlocks[0].innerHTML}
+        coverImage={singleCardMock.attrs.coverImage}
+      />
+    </TestWrapper>
   );
-  expect(speakerimg).toHaveAttribute(
-    "src",
-    singleCardMock.attrs.speakerList[0].company_logo.mediaUrl
-  );
+
+  const wrapper = await screen.findByTestId("card-wrapper");
+  const heading = await screen.findByTestId("card-heading");
+  const speakerrow = await screen.findByTestId("card-speakerrow");
+  const header = await screen.findByTestId("card-header");
+
+  expect(wrapper).toHaveClass("grid-span-2");
+  expect(wrapper).toHaveClass("dark-gray-bg-color");
+  expect(heading).toHaveTextContent(singleCardMock.attrs.title);
+  expect(header).toHaveTextContent(singleCardMock.attrs.category);
+  expect(speakerrow.children).toHaveLength(3);
 });
