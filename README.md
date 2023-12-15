@@ -1,6 +1,6 @@
 # IMPORTANT
 
-There is a CORS issue when trying to call the endpoint from local. This should be fixed on the backend. In the meantime I used this extenstion to load the data [Extenstion](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
+There is a CORS issue when trying to call the endpoint from local. This should be fixed on the backend. In the meantime I used this extension to load the data [allow-cors-access-control](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
 
 ## Next steps (further development)
 
