@@ -30,9 +30,8 @@ export default function SwitchButton(props: {
     >
       <div className="switch-button__wrapper">
         <motion.div
-          layout
+          animate={{ left: bubbleLeftPos }}
           transition={spring}
-          style={{ left: bubbleLeftPos }}
           className="switch-button__selection-bubble"
         />
 
