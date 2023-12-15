@@ -53,17 +53,18 @@ export default function CardRegular(props: {
 
             <div>
               <HeadingRegular testId="card-heading" text={heading} />
-              <div className="show-mobile-only">
-                <SecondaryButton
-                  text="learn more"
-                  onButtonClick={onLearnMoreClick}
-                  Icon={RightArrow}
-                />
-              </div>
             </div>
           </div>
-
-          <SpeakerListRow testId="card-speakerrow" speakers={speakers} />
+          <div>
+            <div className="card-row__learn-more show-mobile-only">
+              <SecondaryButton
+                text="learn more"
+                onButtonClick={onLearnMoreClick}
+                Icon={RightArrow}
+              />
+            </div>
+            <SpeakerListRow testId="card-speakerrow" speakers={speakers} />
+          </div>
         </div>
       </CardWrapper>
       {isModalOpen && (

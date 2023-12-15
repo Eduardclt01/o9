@@ -19,12 +19,12 @@
   display: none;
 
   @include desktopSup {
-    display: initial;
+    display: block;
   }
 }
 
 .show-mobile-only{
-  display: initial;
+  display: block;
 
   @include desktopSup {
     display: none;

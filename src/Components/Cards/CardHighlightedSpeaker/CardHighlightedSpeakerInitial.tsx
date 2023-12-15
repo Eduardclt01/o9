@@ -30,16 +30,21 @@ export default function CardHighlightedSpeakerInitial(props: {
         </div>
 
         <div>
-          <HeadingXL
-            testId="cardHighligted-speakerName"
-            color={"primary-color"}
-            text={firstSpeaker.name}
-          />
-          <HeadingLarge
-            testId="cardHighligted-heading"
-            color={"primary-color"}
-            text={heading}
-          />
+          <div className="card-highlighted-speaker__name">
+            <HeadingXL
+              testId="cardHighligted-speakerName"
+              color={"primary-color"}
+              text={firstSpeaker.name}
+            />
+          </div>
+
+          <div className="card-highlighted-speaker__heading show-mobile-only">
+            <HeadingLarge
+              testId="cardHighligted-heading"
+              color={"primary-color"}
+              text={heading}
+            />
+          </div>
 
           <div className="card-highlighted-speaker__company-details">
             <p data-testid="cardHighligted-speakerpos">

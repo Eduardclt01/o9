@@ -3,7 +3,7 @@
 .speaker-row{
   display: flex;
   grid-column-gap: $space5;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-right: -$space9;
   padding-right: $space9;
 

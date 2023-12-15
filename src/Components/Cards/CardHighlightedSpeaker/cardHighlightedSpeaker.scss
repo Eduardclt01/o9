@@ -3,6 +3,7 @@
 .state-container{
   position: relative;
   overflow: hidden;
+  max-width: 572px;
 }
 
 .card-highlighted-speaker, .card-highlighted-speaker-hover{
@@ -28,6 +29,17 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__heading{
+    padding-top: $space11;
+    padding-bottom: $space12;
+  }
+
+  &__name{
+    @include desktopSup {
+      padding-bottom: $space12;
+    }
+  }
 }
 
 .hover{
@@ -39,6 +51,7 @@
 
 .card-highlighted-speaker-hover{
   &__company-details{
+    padding-top: $space15;
     padding-left: 0;
     padding-right: 0;
   }
