@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import TestWrapper from "../../../TestWrapper";
-import CardHighlightedSpeakers from "./CardHighlightedSpeaker";
+import CardHighlightedSpeakers from "./CardHighlightedSpeakerInitial";
 
 const singleCardMock = {
   blockName: "o9/event-agenda-item",

@@ -37,33 +37,35 @@ export default function CardRegular(props: {
   }
 
   return (
-    <CardWrapper
-      backgroundColor={maxTwoVariant ? "" : "dark-gray"}
-      gridSpanAmount={maxTwoVariant ? 1 : 2}
-      testId="card-wrapper"
-    >
-      <div className="card-row" onClick={setModalOpen}>
-        <div>
-          <CardHeader
-            testId="card-header"
-            time={getDisplayTime(time)}
-            labelText={categoryText}
-          />
-
+    <>
+      <CardWrapper
+        backgroundColor={maxTwoVariant ? "" : "dark-gray"}
+        gridSpanAmount={maxTwoVariant ? 1 : 2}
+        testId="card-wrapper"
+      >
+        <div className="card-row" onClick={setModalOpen}>
           <div>
-            <HeadingRegular testId="card-heading" text={heading} />
-            <div className="show-mobile-only">
-              <SecondaryButton
-                text="learn more"
-                onButtonClick={onLearnMoreClick}
-                Icon={RightArrow}
-              />
+            <CardHeader
+              testId="card-header"
+              time={getDisplayTime(time)}
+              labelText={categoryText}
+            />
+
+            <div>
+              <HeadingRegular testId="card-heading" text={heading} />
+              <div className="show-mobile-only">
+                <SecondaryButton
+                  text="learn more"
+                  onButtonClick={onLearnMoreClick}
+                  Icon={RightArrow}
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <SpeakerListRow testId="card-speakerrow" speakers={speakers} />
-      </div>
+          <SpeakerListRow testId="card-speakerrow" speakers={speakers} />
+        </div>
+      </CardWrapper>
       {isModalOpen && (
         <Modal
           time={time}
@@ -75,6 +77,6 @@ export default function CardRegular(props: {
           heading={heading}
         />
       )}
-    </CardWrapper>
+    </>
   );
 }

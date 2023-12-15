@@ -1,8 +1,8 @@
 import React from "react";
 import "./cardContainer.scss";
 import { KeynoteBlock, coverImage } from "../../../Types/AgendaTypes";
-import CardHighlightedSpeakers from "../../Cards/CardHighlightedSpeaker/CardHighlightedSpeaker";
 import CardRegular from "../../Cards/CardRegular/CardRegular";
+import CardHighlightedSpeaker from "../../Cards/CardHighlightedSpeaker/CardHighlightedSpeaker";
 
 export default function CardContainer(props: {
   speakersFilteredOnDay: KeynoteBlock[];
@@ -18,7 +18,7 @@ export default function CardContainer(props: {
       <div className="card-layout">
         {speakersFilteredOnDay.map((blockItem: KeynoteBlock, index: number) =>
           isHighligtedBlock(blockItem) ? (
-            <CardHighlightedSpeakers
+            <CardHighlightedSpeaker
               time={blockItem.attrs.startTime}
               heading={blockItem.attrs.title}
               speakers={blockItem.attrs.speakerList}
