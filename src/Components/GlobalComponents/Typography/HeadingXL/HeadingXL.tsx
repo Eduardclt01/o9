@@ -1,5 +1,5 @@
 import React from "react";
-import "./headingXl.scss";
+import "./headingXL.scss";
 
 export default function HeadingXL(props: {
   text: string;

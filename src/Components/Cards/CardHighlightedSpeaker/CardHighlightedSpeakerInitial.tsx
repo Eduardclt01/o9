@@ -1,13 +1,13 @@
 import React from "react";
 import "./cardHighlightedSpeaker.scss";
 import { ReactComponent as RightUpArrow } from "../../../Assets/Images/Svgs/rightUpArrow.svg";
-import HeadingLarge from "../../GlobalComponents/Typography/HeadingLarge/HeadingLarge";
 import TimeLabel from "../../GlobalComponents/Labels/TimeLabel/TimeLabel";
 import IconButton from "../../GlobalComponents/Buttons/IconButton/IconButton";
 import CardWrapper from "../CardComponents/CardWrapper/CardWrapper";
 import { getDisplayTime } from "../../../Helpers/helpers";
 import { SpeakerList, coverImage } from "../../../Types/AgendaTypes";
 import HeadingXL from "../../GlobalComponents/Typography/HeadingXL/HeadingXL";
+import HeadingMedium from "../../GlobalComponents/Typography/HeadingMedium/HeadingMedium";
 
 export default function CardHighlightedSpeakerInitial(props: {
   time: string;
@@ -39,7 +39,7 @@ export default function CardHighlightedSpeakerInitial(props: {
           </div>
 
           <div className="card-highlighted-speaker__heading show-mobile-only">
-            <HeadingLarge
+            <HeadingMedium
               testId="cardHighligted-heading"
               color={"primary-color"}
               text={heading}

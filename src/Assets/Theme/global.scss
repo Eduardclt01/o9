@@ -1,7 +1,7 @@
 @import './breakpoints.scss';
-@import './spacing.scss';
+@import './variables.scss';
 
-// ---- COLORS ---- \\
+// ---- Color helpes---- \\
 .primary-color{
   color: $primary;
 }
@@ -14,7 +14,7 @@
   background-color: $darkGray;
 }
 
-// ---- HELPERS ---- \\
+// ---- Display helpers ---- \\
 .show-desktop-only{
   display: none;
 

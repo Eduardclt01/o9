@@ -6,12 +6,12 @@ import TimeLabel from "../../../GlobalComponents/Labels/TimeLabel/TimeLabel";
 import Paragraph from "../../../GlobalComponents/Typography/Paragraph/Paragraph";
 import { useTranslation } from "react-i18next";
 import ParagraphSmall from "../../../GlobalComponents/Typography/ParagraphSmall/ParagraphSmall";
-import HeadingL from "../../../GlobalComponents/Typography/HeadingL/HeadingL";
 import { ReactComponent as CloseIcon } from "../../../../Assets/Images/Svgs/close.svg";
 import { ReactComponent as PlusIcon } from "../../../../Assets/Images/Svgs/plus.svg";
 import { SpeakerList } from "../../../../Types/AgendaTypes";
 import { getDisplayTime } from "../../../../Helpers/helpers";
 import SpeakerListRow from "../SpeakerListRow/SpeakerListRow";
+import HeadingLarge from "../../../GlobalComponents/Typography/HeadingLarge/HeadingLarge";
 
 const animateModal = {
   opacity: 1,
@@ -109,7 +109,7 @@ export default function Modal(props: {
         </div>
 
         <div className="modal__title">
-          <HeadingL text={heading} />
+          <HeadingLarge text={heading} />
         </div>
 
         <div className="modal__body-text">

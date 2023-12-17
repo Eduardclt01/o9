@@ -1,9 +1,9 @@
 import React from "react";
 import TimeLabel from "../../../GlobalComponents/Labels/TimeLabel/TimeLabel";
-import LabelMedium from "../../../GlobalComponents/Typography/LabelMedium/LabelMedium";
 import "./cardHeader.scss";
 import IconButton from "../../../GlobalComponents/Buttons/IconButton/IconButton";
 import { ReactComponent as RightUpArrow } from "../../../../Assets/Images/Svgs/rightUpArrow.svg";
+import ParagraphXS from "../../../GlobalComponents/Typography/ParagraphXS/ParagraphXS";
 
 export default function CardHeader(props: {
   time: string;
@@ -16,7 +16,7 @@ export default function CardHeader(props: {
     <div className="card-header" data-testid={testId}>
       <div className="card-header__textSection">
         <TimeLabel time={time} />
-        <LabelMedium text={labelText} />
+        <ParagraphXS text={labelText} />
       </div>
       <div className="show-desktop-only hoverIcon">
         <IconButton Icon={RightUpArrow} />

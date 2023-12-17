@@ -4,8 +4,8 @@ import { ReactComponent as RightUpArrowInverse } from "../../../Assets/Images/Sv
 import TimeLabel from "../../GlobalComponents/Labels/TimeLabel/TimeLabel";
 import IconButton from "../../GlobalComponents/Buttons/IconButton/IconButton";
 import CardWrapper from "../CardComponents/CardWrapper/CardWrapper";
-import HeadingL from "../../GlobalComponents/Typography/HeadingL/HeadingL";
 import { getDisplayTime } from "../../../Helpers/helpers";
+import HeadingLarge from "../../GlobalComponents/Typography/HeadingLarge/HeadingLarge";
 
 export default function CardHighlightedSpeakerHover(props: {
   time: string;
@@ -24,7 +24,7 @@ export default function CardHighlightedSpeakerHover(props: {
         </div>
 
         <div>
-          <HeadingL text={heading} />
+          <HeadingLarge text={heading} />
 
           <div className="card-highlighted-speaker-hover__company-details">
             <p>{speakerPos}</p>

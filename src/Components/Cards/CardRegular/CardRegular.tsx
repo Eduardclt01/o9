@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SecondaryButton from "../../GlobalComponents/Buttons/SecondaryButton/SecondaryButton";
-import HeadingRegular from "../../GlobalComponents/Typography/HeadingRegular/HeadingRegular";
 import CardHeader from "../CardComponents/CardHeader/CardHeader";
 import CardWrapper from "../CardComponents/CardWrapper/CardWrapper";
 import { ReactComponent as RightArrow } from "../../../Assets/Images/Svgs/rightArrow.svg";
@@ -9,6 +8,7 @@ import { SpeakerList } from "../../../Types/AgendaTypes";
 import "./cardRegular.scss";
 import { getDisplayTime } from "../../../Helpers/helpers";
 import SpeakerListRow from "../CardComponents/SpeakerListRow/SpeakerListRow";
+import Heading from "../../GlobalComponents/Typography/Heading/Heading";
 
 export default function CardRegular(props: {
   time: string;
@@ -52,7 +52,7 @@ export default function CardRegular(props: {
             />
 
             <div>
-              <HeadingRegular testId="card-heading" text={heading} />
+              <Heading testId="card-heading" text={heading} />
             </div>
           </div>
           <div>
