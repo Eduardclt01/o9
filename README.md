@@ -1,6 +1,8 @@
 # IMPORTANT
 
-There is a CORS issue when trying to call the endpoint from local. This should be fixed on the backend. In the meantime I used this extension to load the data [allow-cors-access-control](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
+There is a CORS issue when trying to call the endpoint from local. This should be fixed on the backend. In the meantime I used this browser extension to load the data [allow-cors-access-control](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
+
+This app is deployed on [here](https://o9-nine.vercel.app/) (browser extension mentioned above is needed, due to cors issue)
 
 ## Next steps (further development)
 
@@ -14,6 +16,10 @@ There is a CORS issue when trying to call the endpoint from local. This should b
 2. `cd` into the root
 3. run `npm install`
 4. run `npm start`
+
+### Testing
+
+1. run `npm test`
 
 ## Available Scripts
 
